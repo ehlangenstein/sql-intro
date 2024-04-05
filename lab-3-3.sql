@@ -14,5 +14,16 @@
 -- | 1970 | Baltimore Orioles             | 108       |
 -- | 2019 | Houston Astros                | 107       |
 -- | 2004 | St. Louis Cardinals           | 105       |
+select year, name, max(wins)
+from teams 
+where year >= 1960
+group by year
+order by max(wins) desc;
+-- cant include name because its not in the group by or aggregate statement. just picked a random one 
+-- use sub queries
 
-
+select year, max(wins)
+from teams 
+where year >= 1960
+group by year
+order by max(wins) desc;

@@ -7,3 +7,9 @@
 -- +---------------+------------+-----------+-----------+
 
 
+select teams.name, players.first_name, players.last_name, max(stats.home_runs)
+from ((players 
+inner join stats ON stats.player_id=players.id)
+INNER JOIN teams ON stats.team_id=teams.id)
+where year=2019;
+
